@@ -1,4 +1,4 @@
-# Repository used for VAVJS school assignment
+# Repository used for VAVJS school assignments
 Contains free music under CC license:<br />
 Pathfinder by Alexander Nakarada (CreatorChords) | https://creatorchords.com<br />
 Music promoted by https://www.free-stock-music.com<br />
