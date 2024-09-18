@@ -1,0 +1,38 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - mynetwork
+    depends_on:
+      - db
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock  
+  db:
+    image: postgres:16.0
+    environment:
+      POSTGRES_DB: vavjs_databaza
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5432:5432'
+    networks:
+      - mynetwork
+  test:
+    image: test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["npm", "test"]
+    networks:
+      - mynetwork
+    depends_on:
+      - web
+
+networks:
+  mynetwork:
+    
